@@ -1,0 +1,99 @@
+/* Add your CSS styles here */
+#todo-app {
+	margin: 0 auto;
+	max-width: 600px;
+	padding: 20px;
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+}
+
+#todo-input {
+	display: block;
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 100%;
+}
+
+#add-todo {
+    display: block;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	cursor: pointer;
+	padding: 10px;
+    width:102%;
+}
+
+#add-todo:hover {
+	background-color: #3e8e41;
+}
+
+#todo-list {
+	display: inline;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#todo-list li {
+	padding: 10px;
+}
+
+#todo-list li:hover {
+	transform: translateY(-5px);
+	transition-duration: 500ms;
+}
+
+.task-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	margin-bottom: -10px;
+	transition: all 0.3s ease;
+}
+
+.button-container {
+	display: inline-block;
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+  }
+  
+  .edit-link {
+	display: inline-block;
+	background-color: #4CAF50;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+
+ .delete-link {
+	display: inline-block;
+	background-color: #f44336;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
+  .edit-link:hover {
+	background-color: #3e8e41;
+  }
+
+  .delete-link:hover {
+	background-color: #c62828;
+  }

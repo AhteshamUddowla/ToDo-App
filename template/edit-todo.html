@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo App</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+	<div id="todo-app">
+	<h1>Todo List</h1>
+
+	<form action="{% url 'updateToDo' todo.id %}" method="post">
+		{% csrf_token %}
+		{{form.task}}
+		<button id="add-todo">Edit Todo</button>
+	</form>
+
+    <ul id="todo-list">
+		<!-- Each task item will have a wrapper div and buttons for editing and deleting -->
+		{% for todo in todos %}
+		<li>
+			<div class="task-item">
+			<span>{{todo.task}}</span>
+	
+				<div class="button-container">
+					<a href="{% url 'updateToDo' todo.id %}" class="edit-link">Edit</a>
+					<a href="{% url 'deleteToDo' todo.id %}" class="delete-link">Delete</a>
+				</div>
+		
+			</div>
+		</li>
+		{% endfor %}
+</div>
+
+
+</body>
+</html>

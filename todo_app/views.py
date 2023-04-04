@@ -4,20 +4,28 @@ from .models import ToDo
 from .forms import ToDoForm
 
 # Create your views here.
-def todo(request):
+def createToDo(request):
     todos = ToDo.objects.all()
     form = ToDoForm()
 
-    context = {'todos': todos, 'form':form}
-    return render(request, 'main.html', context)
-
-def createToDo(request):
     if request.method == 'POST':    
         form = ToDoForm(request.POST)
         
         if form.is_valid():
             form.save()
             return redirect('/')
+
+    context = {'todos': todos, 'form':form}
+    return render(request, 'main.html', context)
+
+# def createToDo(request):
+#     print("Hello1")
+#     if request.method == 'POST':    
+#         form = ToDoForm(request.POST)
+        
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/')
         
 
 def updateToDo(request, pk):
@@ -33,7 +41,7 @@ def updateToDo(request, pk):
             return redirect('/')
         
     context = {'todos':todos, 'todo':todo, 'form':form}
-    return render(request, 'edit-todo.html', context)
+    return render(request, 'main.html', context)
 
 
 

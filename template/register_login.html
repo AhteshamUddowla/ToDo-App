@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!-- Register Form -->
+{% if text == 'register' %}
+
+<form method="post" action="">
+    {% csrf_token %}
+
+    <h1>Sign up</h1>
+    
+    {% for field in form %}
+    <label for="username">{{field.label}}</label>
+    {{field}}
+    <!-- {% if field.help_text %}
+        <small>{{field.help_text}}</small>
+    {% endif %} -->
+    {% endfor %}
+    <input type="submit" value="Sign up">
+    <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+</form>
+
+{% elif text == 'login' %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    <h1>Sign in</h1>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <input type="submit" value="Sign in">
+    <p>Don't have an account yet? <a href="{% url 'register' %}">Sign up</a></p>
+</form>
+
+{% endif %}
+
+
+{% endblock %}

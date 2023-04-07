@@ -1,4 +1,108 @@
 /* Add your CSS styles here */
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: linear-gradient(135deg, #667eea, #764ba2);
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: Arial, sans-serif;
+	min-height: 100vh;
+}
+
+
+  /* Navbar */
+  nav {
+	background-color: #333;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 18px;
+	margin-right: 20px;
+	transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+	color: #00bfff;
+}
+
+/* Sinup form */
+form {
+	background-color: #ffffff;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	margin: 20px auto;
+	width: 400px;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 0;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	border: none;
+	border-radius: 5px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	width: 100%;
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 5px;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 10px;
+	padding: 10px;
+	width: 100%;
+}
+
+input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+
+p {
+	margin-top: 20px;
+	text-align: center;
+}
+
+p a {
+	color: #00bfff;
+	text-decoration: none;
+	font-weight: bold;
+	transition: color 0.3s ease-in-out;
+}
+
+p a:hover {
+	color: #333;
+}
+
+
+
+
+
+/* Todo Form and List */
+
 #todo-app {
 	margin: 0 auto;
 	max-width: 600px;
@@ -78,6 +182,10 @@ h1 {
 	cursor: pointer;
   }
 
+  .edit-link:hover {
+	background-color: #3e8e41;
+  }
+
  .delete-link {
 	display: inline-block;
 	background-color: #f44336;
@@ -88,12 +196,51 @@ h1 {
 	margin: 5px;
 	border-radius: 5px;
 	cursor: pointer;
-  }
-  
-  .edit-link:hover {
-	background-color: #3e8e41;
+	border-color: white;
   }
 
   .delete-link:hover {
 	background-color: #c62828;
   }
+
+
+  /* Account */
+  .profile-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+  }
+  
+  .profile-section img {
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+	margin-bottom: 20px;
+  }
+  
+  .profile-section h2 {
+	font-size: 24px;
+	margin-bottom: 10px;
+  }
+  
+  .profile-section p {
+	font-size: 16px;
+	margin-bottom: 5px;
+  }
+  
+  .edit-profile-btn {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	margin-top: 20px;
+	cursor: pointer;
+  }
+  
+  .edit-profile-btn:hover {
+	background-color: #3e8e41;
+  }
+  

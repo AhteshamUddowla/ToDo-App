@@ -10,6 +10,17 @@
 
 {% include 'navbar.html' %}
 
+{% if messages %}
+
+{% for message in messages %}
+    <div>
+        <p style="color:gold">{{message}}</p>
+        
+    </div>
+{% endfor %}
+
+{% endif %}
+
 {% block content %}
 
 {% endblock %}

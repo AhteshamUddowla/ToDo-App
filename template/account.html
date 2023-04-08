@@ -2,12 +2,14 @@
 
 {% block content %}
 
-<div class="profile-section">
-    <img src="" alt="Profile Picture">
-    <h2>John Doe</h2>
-    <p>Email: john.doe@example.com</p>
-    <p>Phone: 555-555-5555</p>
-    <button class="edit-profile-btn">Edit Profile</button>
-</div>
+<div class="profile-container">
+    <a href="{% url 'edit-account' profile.id %}" class="edit-profile-link">Edit</a>
+    <div class="profile-section">
+      <img src="{{profile.profile_image.url}}" alt="Profile Picture">
+      <h2>{{profile.name}}</h2>
+      <p><b>Email:</b> {{profile.email}}</p>
+      <p><b>Username:</b> {{profile.username}}</p>
+    </div>
+  </div>
 
 {% endblock %}

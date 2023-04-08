@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="update-profile-form">
+    
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+      <label for="username">{{field.label}}</label>
+      {{field}}
+    {% endfor %}
+  
+      <input type="submit" value="Update Profile">
+    </form>
+  </div>
+  
+
+{% endblock %}

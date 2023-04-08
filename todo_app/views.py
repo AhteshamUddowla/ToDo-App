@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.http import HttpResponse
 from .models import Profile, ToDo
-from .forms import ToDoForm, CustomUserCreationForm
+from .forms import ProfileForm, ToDoForm, CustomUserCreationForm
 
 # Create your views here.
 def registerUser(request):
@@ -13,19 +14,25 @@ def registerUser(request):
 
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        print('hi')
+        
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
-
-            return redirect('login')
+            messages.success(request, "User account created successfully")
+            login(request, user)
+            return redirect('todo')
+        else:
+             messages.error(request, 'An error has occured')
         
     context = {'text': text, 'form':form}
     return render(request, 'register_login.html', context)
 
 def loginUser(request):
     text = 'login'
+
+    if request.user.is_authenticated:
+        return redirect('todo')
 
     if request.method == 'POST':
         username = request.POST['username'].lower()
@@ -34,13 +41,16 @@ def loginUser(request):
         try:
             user = User.objects.get(username=username)
         except:
-            print("Username doesn't exists")
+            # print("Username doesn't exists")
+            messages.error(request, "Username doesn't exist")
 
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
             return redirect('todo')
+        else:
+            messages.error(request, 'Username or password is incorrect')
     
 
     context = {'text': text}
@@ -50,9 +60,25 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+@login_required(login_url='login')
 def userAccount(request,pk):
-    context = {}
+    profile = request.user.profile
+    context = {'profile':profile}
     return render(request, 'account.html', context)
+
+@login_required(login_url='login')
+def editProfile(request, pk):
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('account', pk=profile.id)
+
+    context = {'form':form}
+    return render(request, 'edit_profile.html', context)
 
 @login_required(login_url='login')
 def createToDo(request):

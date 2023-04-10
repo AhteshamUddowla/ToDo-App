@@ -34,7 +34,7 @@ A todo app using HTML, CSS and Django
 #### And here is the updated todo list after deletion of a task
 <img width="947" alt="11  todo deleted" src="https://user-images.githubusercontent.com/86501763/230791513-a16ffcde-bae9-46be-b226-3f3083bc66dc.png">
 
-#### Here is a simple user profile, they can update their profile by clicking edit button
+#### Here is a simple user profile, they can update their profile by clicking on edit button
 <img width="946" alt="12  profile" src="https://user-images.githubusercontent.com/86501763/230791549-8b521b55-bd43-43b0-acb6-2d3599c2d7cf.png">
 
 #### And this is the edit form where users can update their profile but username is not edit-able

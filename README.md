@@ -37,8 +37,8 @@ A todo app using HTML, CSS and Django
 #### Here is a simple user profile, they can update their profile by clicking edit button
 <img width="946" alt="12  profile" src="https://user-images.githubusercontent.com/86501763/230791549-8b521b55-bd43-43b0-acb6-2d3599c2d7cf.png">
 
-#### And this is the edit form where users can update their profile
-<img width="950" alt="13  update profile" src="https://user-images.githubusercontent.com/86501763/230791588-5c427e07-8528-40b3-929c-abf3303369c3.png">
+#### And this is the edit form where users can update their profile but username is not edit-able
+<img width="947" alt="username is not edit-able" src="https://user-images.githubusercontent.com/86501763/230829157-914421d6-1f58-491d-b2c7-edef1ed20a17.png">
 
 #### This is the view after updateing users profile
 <img width="947" alt="14  updated profile" src="https://user-images.githubusercontent.com/86501763/230791663-07fb9fe0-248b-43cb-9c78-c3beb25d25df.png">

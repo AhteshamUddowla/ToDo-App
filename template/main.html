@@ -11,15 +11,17 @@
 {% include 'navbar.html' %}
 
 {% if messages %}
-
 {% for message in messages %}
-    <div>
-        <p style="color:gold">{{message}}</p>
+    <div class="alert {% if message.tags == 'success' %} alert-success
+                      {% else %} alert-danger {% endif %}">
         
+            <li>{{message}}</li> 
+           
     </div>
-{% endfor %}
+    {% endfor %}
 
 {% endif %}
+
 
 {% block content %}
 

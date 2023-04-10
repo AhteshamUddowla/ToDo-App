@@ -4,7 +4,7 @@
     
     <form method="post">
         {% csrf_token %}
-        <h2>Are you sure you want to delete '{{todo}}'?</h2>
+        <h2>Are you sure you want to delete <h2 style="color:tomato">'{{todo}}?'</h2></h2>
         <div class="button-container">
             <button class="delete-link">Yes, delete it</button>
             <a href="{% url 'todo' %}" class="edit-link">Cancel</a>

@@ -5,10 +5,17 @@
 <div id="todo-app">
 	<h1>Todo List</h1>
 
-	<form action="" method="post">
+	<form action="" method="post" class="todo-input">
 		{% csrf_token %}
 		{{form.task}}
-		<button id="add-todo">Add Todo</button>
+		
+		{% if todo %}
+			<button id="add-todo">Update Todo</button>
+		{% else %}
+			<button id="add-todo">Add Todo</button>
+		{% endif %}
+		
+
 	</form>
 
 	<ul id="todo-list">

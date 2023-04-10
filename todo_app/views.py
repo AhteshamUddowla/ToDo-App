@@ -14,17 +14,21 @@ def registerUser(request):
 
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
+        user = request.POST['username'].lower()
         
-        if form.is_valid():
+        if User.objects.filter(username=user).exists():
+            messages.error(request, "Username already exists..")
+        
+        elif form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower()
+            user.username = user.username.lower()   
             user.save()
             messages.success(request, "User account created successfully")
             login(request, user)
             return redirect('todo')
-        else:
-             messages.error(request, 'An error has occured')
-        
+        # else:
+        #      messages.error(request, 'An error has occured')
+            
     context = {'text': text, 'form':form}
     return render(request, 'register_login.html', context)
 
@@ -102,9 +106,10 @@ def createToDo(request):
 def updateToDo(request, pk):
     profile = request.user.profile
     todos = profile.todo_set.all()
+    # here todo is an instance
     todo = ToDo.objects.get(id=pk)
     form = ToDoForm(instance=todo)
-    
+
     if request.method == 'POST':
         form = ToDoForm(request.POST, instance=todo)
 

@@ -2,12 +2,13 @@
 
 {% block content %}
 
-<div class="update-profile-form">
+<div>
     
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
+    
     {% for field in form %}
-      <label for="username">{{field.label}}</label>
+      <label><b>{{field.label}}</b></label>
       {{field}}
     {% endfor %}
   
